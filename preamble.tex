@@ -103,7 +103,8 @@
 \usepackage{footnote}
 \usepackage{threeparttable}
 \definecolor{CodeColour}{rgb}{0.9,0.9,0.9} %Light grey
-\lstset{basicstyle=\small\ttfamily,
+\lstdefinestyle{cheri}{
+	basicstyle=\small\ttfamily,
         stringstyle=\textit, %italic strings
         keywordstyle=\textbf, %Bold keywords
         commentstyle=,
@@ -119,6 +120,7 @@
 }
 \lstdefinelanguage{llvm}
 {
+	style=cheri,
 	morekeywords={private, constant, i8, i32, define, icmp, label, i64, call, void, ret, getelementptr, br, load, align, nounwind},
 	morekeywords={addrspace, inttoptr, ptrtoint, tail},
 	morecomment=[l];
@@ -140,6 +142,7 @@
     backgroundcolor=\color{White},
     aboveskip=0em,
     belowskip=0em,
+    style=cheri,
   }
 
 \lstdefinelanguage{bluespec}
@@ -149,14 +152,15 @@
   morecomment=[l][\itshape\color{DarkGreen}]{//},
   morecomment=[s][\itshape\color{DarkGreen}]{/*}{*/},
   emphstyle={\it},
+  style=cheri,
 }
 
-\lstnewenvironment{ccodelisting}{\lstset{language=C}}{}
+\lstnewenvironment{ccodelisting}{\lstset{style=cheri,language=C}}{}
 \lstnewenvironment{llvmlisting}{\lstset{language={llvm}}}{}
-\newcommand{\ccode}[1]{\lstinline[backgroundcolor=\color{white},language=C]|#1|}
-\newcommand{\llvmir}[1]{\lstinline[backgroundcolor=\color{white},language={llvm}]|#1|}
-\newcommand{\asm}[1]{\lstinline[backgroundcolor=\color{white},language={}]|#1|}
-\lstnewenvironment{asmcode}{\lstset{language=}}{}
+\newcommand{\ccode}[1]{\lstinline[style=cheri,backgroundcolor=\color{white},language=C]|#1|}
+\newcommand{\llvmir}[1]{\lstinline[style=cheri,backgroundcolor=\color{white},language={llvm}]|#1|}
+\newcommand{\asm}[1]{\lstinline[style=cheri,backgroundcolor=\color{white},language={}]|#1|}
+\lstnewenvironment{asmcode}{\lstset{style=cheri,language=}}{}
 \newcommand{\regname}[1]{{\small\ttfamily\$#1}}
 
 \newcommand{\baselineboxformatting}[1]{%
