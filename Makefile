@@ -133,6 +133,8 @@ sail-cheri-riscv-latex: $(SAIL_CHERI_RISCV_DIR) | $(SAIL_LATEX_RISCV_DIR)
 	chmod -R +w $(SAIL_LATEX_RISCV_DIR)
 	rm -rf $(SAIL_LATEX_RISCV_DIR)
 	cp -r $(SAIL_CHERI_RISCV_DIR)/$(SAIL_LATEX_RISCV_DIR) $(SAIL_LATEX_RISCV_DIR)
+	cp $(SAIL_CHERI_RISCV_DIR)/LICENCE $(SAIL_LATEX_RISCV_DIR)/LICENCE.sail-cheri-riscv
+	cp $(SAIL_CHERI_RISCV_DIR)/sail-riscv/LICENCE $(SAIL_LATEX_RISCV_DIR)/LICENCE.sail-riscv
 	$(FIND) $(SAIL_LATEX_RISCV_DIR) -type f -name 'fcl*zexecute*.tex' -exec $(SED) -i -e '1d; 2{/^{$$/d}; $$d; s/^  //;' {} +
 	touch $(SAIL_LATEX_RISCV_DIR)/0GENERATED_FILES_DO_NOT_EDIT
 	touch $(SAIL_LATEX_RISCV_DIR)/zGENERATED_FILES_DO_NOT_EDIT

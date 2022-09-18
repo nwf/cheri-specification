@@ -118,6 +118,15 @@
         numbersep=5pt, % Five points between the line numbers and the text
         tabsize=4
 }
+\lstdefinestyle{license}{
+  basicstyle=\footnotesize\ttfamily,
+  columns=fullflexible,
+  keepspaces=true,
+  frame=l,
+  inputencoding=utf8,
+  extendedchars=true,
+  literate={{’}{{'}}1}
+}
 \lstdefinelanguage{llvm}
 {
 	style=cheri,
